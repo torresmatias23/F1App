@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Escuderias F1</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let aux of escuderias" (click)="verDetalleEquipo(aux)">
+      <ion-avatar>
+        <img [src]="aux.imagen" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{aux.nombre}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
