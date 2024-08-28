@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img src="assets/pilotos2024.jpg" alt="">
+    <ion-card-header>
+      <ion-card-title>Bienvenido a F1</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content [formGroup]="loginForm">
+      <ion-item>
+        <ion-input 
+          formControlName="email" 
+          [(ngModel)]="emailValue" 
+          label="Email" 
+          labelPlacement="floating" 
+          placeholder="Ej: usuario@gmail.com">
+        </ion-input>
+      </ion-item>
+      
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+        El correo es obligatorio
+      </ion-text>
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+        El correo es invalido!
+      </ion-text>
+      <ion-text position="stacked" color="success" *ngIf="loginForm.get('email')?.valid && loginForm.get('email')?.touched">
+        El correo es válido!
+      </ion-text>
+      
+      <ion-item>
+        <ion-input  
+          formControlName="pass" 
+          [(ngModel)]="passValue" 
+          type="password" 
+          label="Contraseña" 
+          labelPlacement="floating" 
+          placeholder="Ingresa tu contraseña">
+        </ion-input>
+      </ion-item>
+      
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('pass')?.hasError('required') && loginForm.get('pass')?.touched">
+        La contraseña es obligatoria!
+      </ion-text>
+      <ion-text position="stacked" color="danger" *ngIf="loginForm.get('pass')?.hasError('minlength') && loginForm.get('pass')?.touched">
+        La contraseña debe tener al menos 6 caracteres!
+      </ion-text>
+      
+      <ion-button id="btn-ingresar" shape="round" (click)="login()" color="danger">Ingresar</ion-button>
+    </ion-card-content>
+  </ion-card> 
+</ion-content>

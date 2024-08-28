@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>corredores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let corredor of corredores" (click)="verDetalleCorredor(corredor)">
+      <ion-avatar>
+        <img [src]="corredor.imagen" alt="">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ corredor.nombre }} {{ corredor.apellido }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

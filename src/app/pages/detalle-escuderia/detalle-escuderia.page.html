@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detalle-escuderia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Imagen de la escudería -->
+  <div class="escuderia-info">
+    <img [src]="escuderiaImagen" alt="Imagen de {{ nombreEquipo }}">
+    <p>{{ escuderiaDescripcion }}</p>
+  </div>
+  
+  <!-- Lista de corredores -->
+  <ion-list>
+    <ion-item *ngFor="let corredor of corredoresFiltrados" (click)="verDetalleCorredor(corredor.nombre)">
+      <ion-avatar slot="start">
+        <img [src]="corredor.imagen" alt="{{ corredor.nombre }} {{ corredor.apellido }}">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ corredor.nombre }} {{ corredor.apellido }}</h2>
+        <p>{{ corredor.descripcion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
